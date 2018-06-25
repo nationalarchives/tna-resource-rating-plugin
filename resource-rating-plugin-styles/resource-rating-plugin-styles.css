@@ -1,0 +1,13 @@
+.resource-rating-button
+{
+    background:  url("img/star.svg") no-repeat center !important;
+    color: black !important;
+}
+.resource-rating-button:hover
+{
+    opacity: 0.5;
+}
+
+#resource-ratings-voting {
+    margin-bottom: 0.5em;
+}
