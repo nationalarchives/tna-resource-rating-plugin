@@ -101,3 +101,40 @@ function decode_ratings_cookie ($cookie_value) {
 	$pieces = explode(",", $cookie_value);
 	return array( "post-id" => $pieces[0], "resource-rating" => $pieces[1]);
 }
+
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Description: Calculates and returns the current sum total of resource ratings.
+ *
+ * @param $ratings
+ *
+ * @return float|int
+ */
+function calculate_resource_rating_sum ($ratings) {
+	return array_sum($ratings);
+}
+
+/**
+ * Description: Calculates and returns the current overall number of resource ratings.
+ *
+ * @param $ratings
+ *
+ * @return int
+ */
+function calculate_resource_rating_frequency ($ratings) {
+	return count( $ratings );
+}
+
+/**
+ * Description: Calculates and returns the current resource rating average.
+ *
+ * @param $ratings
+ *
+ * @return float|int
+ */
+function calculate_resource_rating_average ($ratings) {
+	$sum = calculate_resource_rating_sum($ratings);
+	$freq = calculate_resource_rating_frequency($ratings);
+	return ( $sum > 0 && $freq > 0 ) ? round($sum / $freq, 2) : 0;
+}

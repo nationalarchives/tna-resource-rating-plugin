@@ -27,6 +27,11 @@ function resource_rating_metabox_html ($post) {
 				<?php if (get_the_resource_ratings_status($post->ID) == "enabled") { echo("checked"); } ?>
 			>
 		</form>
+		<?php if (get_the_resource_ratings_status($post->ID) == "enabled") {?>
+            <p><strong>Average rating for this post:</strong> <?php echo calculate_resource_rating_average(get_the_resource_ratings($post->ID)) ?> </p>
+            <p><strong>Number of ratings for this post:</strong> <?php echo calculate_resource_rating_frequency(get_the_resource_ratings($post->ID)) ?> </p>
+        <?php } ?>
+
 	</div>
 	<?php
 }
